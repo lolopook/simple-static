@@ -8,7 +8,7 @@ RUN rm -rf /usr/share/nginx/html/*
 COPY ./ /usr/share/nginx/html
 
 # Exposer le port 80 pour l'accès HTTP
-EXPOSE 80
+EXPOSE 3000
 
 # Démarrer Nginx lorsque le conteneur démarre
 CMD ["nginx", "-g", "daemon off;"]
