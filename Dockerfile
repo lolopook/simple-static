@@ -1,11 +1,14 @@
-# Utilise l'image officielle Nginx comme base
+# Utiliser l'image de base officielle Nginx
 FROM nginx:alpine
 
-# Copie les fichiers de votre site statique dans le répertoire par défaut d'Nginx
+# Supprimer la configuration par défaut de Nginx
+RUN rm -rf /usr/share/nginx/html/*
+
+# Copier les fichiers de ton site statique vers le dossier de Nginx
 COPY ./ /usr/share/nginx/html
 
-# Expose le port 80 pour accéder au site web
+# Exposer le port 80 pour l'accès HTTP
 EXPOSE 80
 
-# Commande par défaut pour lancer Nginx
+# Démarrer Nginx lorsque le conteneur démarre
 CMD ["nginx", "-g", "daemon off;"]
